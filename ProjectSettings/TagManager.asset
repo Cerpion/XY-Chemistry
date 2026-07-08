@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Component
   - Mixer
+  - DelieverStage
   layers:
   - Default
   - TransparentFX
