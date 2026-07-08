@@ -5,10 +5,12 @@ using System.Collections.Generic;
 public class Mixer : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    [SerializeField] private List<string> components = new List<string>();
+    [SerializeField] private ICraftSystem craftSystem;
+    [SerializeField] private RecipeConfiguration recipeConfiguration;
+    [SerializeField] private ItemData trashData;
     void Start()
     {
-        
+        craftSystem = new CraftSystem(recipeConfiguration, trashData);
     }
 
     // Update is called once per frame
@@ -17,8 +19,8 @@ public class Mixer : MonoBehaviour
         
     }
 
-    public void AddComponent(string component)
+    public void AddComponent(ItemData item)
     {
-        components.Add(component);
+        craftSystem.AddItem(item);
     }
 }

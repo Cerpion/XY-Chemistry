@@ -5,13 +5,14 @@ public class Component : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private Vector3 offset = new Vector3(0, 0.2f, 0);
-    [SerializeField] private bool isSelected = false;
+    public bool isSelected = false;
     [SerializeField] private Vector3 originalPos;
     [SerializeField] private Quaternion originalRot;
     [SerializeField] private float moveSpeed = 0.01f;
     private Rigidbody componentRb;
     [SerializeField] private string nameComponent;
     private GameManager gameManager;
+    //[SerializeField] private ItemData itemData;
     
     void Start()
     {
@@ -31,10 +32,12 @@ public class Component : MonoBehaviour
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
                 // If ray hit this enemy, destroy it
-                if (hit.transform == transform && !isSelected)
+                if (hit.transform == transform && !isSelected && !gameManager.isAnyComponentSelected)
                 {
+                    
                     transform.position = transform.position + offset;
                     isSelected = true;
+                    gameManager.IsAnyObjectSelected();
                     componentRb.isKinematic = true;
                 }
                 else
@@ -43,6 +46,7 @@ public class Component : MonoBehaviour
                     isSelected = false;
                 }
                 
+
             }
         }
 
@@ -62,6 +66,7 @@ public class Component : MonoBehaviour
         transform.position = originalPos;
         transform.rotation = originalRot;
         isSelected = false;
+        gameManager.IsAnyObjectSelected();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -72,7 +77,7 @@ public class Component : MonoBehaviour
 
             if(mixer != null)
             {
-                mixer.AddComponent(nameComponent);
+                //mixer.AddComponent(itemData);
             }
         }
         SetDefaultPosition();
