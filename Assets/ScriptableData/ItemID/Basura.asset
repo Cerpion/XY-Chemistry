@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d818732fe8f9b1c42a3043c2a6f59bb3, type: 3}
   m_Name: Basura
   m_EditorClassIdentifier: Assembly-CSharp::ItemID
-  ID: 
+  ID: Basura
