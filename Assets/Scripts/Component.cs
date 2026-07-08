@@ -10,9 +10,8 @@ public class Component : MonoBehaviour
     [SerializeField] private Quaternion originalRot;
     [SerializeField] private float moveSpeed = 0.01f;
     private Rigidbody componentRb;
-    [SerializeField] private string nameComponent;
     private GameManager gameManager;
-    //[SerializeField] private ItemData itemData;
+    [SerializeField] private ItemData itemData;
     
     void Start()
     {
@@ -77,7 +76,7 @@ public class Component : MonoBehaviour
 
             if(mixer != null)
             {
-                //mixer.AddComponent(itemData);
+                mixer.AddComponent(itemData);
             }
         }
         SetDefaultPosition();

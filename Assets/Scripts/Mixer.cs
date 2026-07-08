@@ -1,6 +1,7 @@
+using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
-using System.Collections.Generic;
+using static UnityEditor.Progress;
 
 public class Mixer : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class Mixer : MonoBehaviour
     [SerializeField] private ICraftSystem craftSystem;
     [SerializeField] private RecipeConfiguration recipeConfiguration;
     [SerializeField] private ItemData trashData;
+
+    [SerializeField] private bool _craft;
     void Start()
     {
         craftSystem = new CraftSystem(recipeConfiguration, trashData);
@@ -16,11 +19,18 @@ public class Mixer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (_craft)
+        {
+            var item = craftSystem.Craft();
+            Debug.Log(item.ID);
+            Instantiate(item.Prefab,transform);
+            _craft = false;
+        }
     }
 
     public void AddComponent(ItemData item)
     {
+        Debug.Log("Entro");
         craftSystem.AddItem(item);
     }
 }

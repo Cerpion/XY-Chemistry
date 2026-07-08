@@ -231,6 +231,77 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &288186256
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 288186259}
+  - component: {fileID: 288186258}
+  - component: {fileID: 288186257}
+  m_Layer: 0
+  m_Name: Mixer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &288186257
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288186256}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.61732763, y: 0.2597233, z: 0.6163602}
+  m_Center: {x: 0.000000029802322, y: -0.021481276, z: 0}
+--- !u!114 &288186258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288186256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f824181072ada5845b39cc2716061002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mixer
+  recipeConfiguration: {fileID: 11400000, guid: d983272754f108c4395d83cd04e61883, type: 2}
+  trashData: {fileID: 11400000, guid: f3a5679718f87634c9c003ccc9bb840f, type: 2}
+  _craft: 0
+--- !u!4 &288186259
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288186256}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1, y: 0.65, z: -4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1762438428}
+  - {fileID: 1035629976}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,8 +626,6 @@ GameObject:
   - component: {fileID: 837560096}
   - component: {fileID: 837560095}
   - component: {fileID: 837560094}
-  - component: {fileID: 837560093}
-  - component: {fileID: 837560097}
   m_Layer: 0
   m_Name: Mixer
   m_TagString: Mixer
@@ -564,29 +633,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!136 &837560093
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 837560092}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &837560094
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -652,27 +698,44 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 837560092}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0.65, z: -4}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.6, y: 0.15, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1762438428}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &837560097
-MonoBehaviour:
+--- !u!1 &1035629975
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 837560092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f824181072ada5845b39cc2716061002, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Mixer
-  recipeConfiguration: {fileID: 0}
-  trashData: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1035629976}
+  m_Layer: 0
+  m_Name: Particulas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1035629976
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035629975}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 288186259}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1074593696
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -685,6 +748,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Component3
       objectReference: {fileID: 0}
+    - target: {fileID: 4728891432468538989, guid: 8285c4a14631166409d0f0e957d12b38, type: 3}
+      propertyPath: itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: eada5e800f704e944bda0f5336511d82, type: 2}
     - target: {fileID: 4728891432468538989, guid: 8285c4a14631166409d0f0e957d12b38, type: 3}
       propertyPath: nameComponent
       value: ornitoperro
@@ -860,6 +927,10 @@ PrefabInstance:
       value: Component2
       objectReference: {fileID: 0}
     - target: {fileID: 4728891432468538989, guid: 8285c4a14631166409d0f0e957d12b38, type: 3}
+      propertyPath: itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: 00e5ec016e475b6409e4c3ab4876f244, type: 2}
+    - target: {fileID: 4728891432468538989, guid: 8285c4a14631166409d0f0e957d12b38, type: 3}
       propertyPath: nameComponent
       value: gato
       objectReference: {fileID: 0}
@@ -908,6 +979,38 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8285c4a14631166409d0f0e957d12b38, type: 3}
+--- !u!1 &1762438427
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1762438428}
+  m_Layer: 0
+  m_Name: Skin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1762438428
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762438427}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 837560096}
+  m_Father: {fileID: 288186259}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2031230317
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,7 +1042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   gameLevel: 0
   nLifes: 0
-  isComponentSelected: 0
+  isAnyComponentSelected: 0
   costumeOrder: []
 --- !u!4 &2031230319
 Transform:
@@ -968,6 +1071,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Component1
       objectReference: {fileID: 0}
+    - target: {fileID: 4728891432468538989, guid: 8285c4a14631166409d0f0e957d12b38, type: 3}
+      propertyPath: itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: 50e7766e6c50f3c47bbbef2677188048, type: 2}
     - target: {fileID: 4728891432468538989, guid: 8285c4a14631166409d0f0e957d12b38, type: 3}
       propertyPath: nameComponent
       value: perro
@@ -1026,7 +1133,7 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 1145123021}
   - {fileID: 269865108}
-  - {fileID: 837560096}
+  - {fileID: 288186259}
   - {fileID: 4919130309206796256}
   - {fileID: 1602400115}
   - {fileID: 1074593696}

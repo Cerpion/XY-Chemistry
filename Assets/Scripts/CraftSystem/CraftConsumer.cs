@@ -5,6 +5,7 @@ public class CraftConsumer : MonoBehaviour
 
     public bool addItem;
     public bool craft;
+
     public ICraftSystem craftSystem ;
 
     public RecipeConfiguration _recipes;
