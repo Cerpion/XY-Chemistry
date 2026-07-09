@@ -12,10 +12,13 @@ public class ClientMovement : MonoBehaviour
 
     [SerializeField] private float speedMovement;
 
+    private ClientSpawner clientSpawn;
+
     void OnEnable()
     {
         deliveryStage = GameObject.FindGameObjectWithTag("PointToReceiveDelivery");
         exitStage = GameObject.FindGameObjectWithTag("PointToExit");
+        clientSpawn = GameObject.Find("ClientSpawner").GetComponent<ClientSpawner>();
         isInDeliveryStage = false;
 
         if (deliveryStage != null)
@@ -53,8 +56,12 @@ public class ClientMovement : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, exitPosition, speedMovement * Time.deltaTime);
             if (transform.position == exitPosition)
             {
-                gameObject.SetActive(false);
                 
+                Destroy(gameObject);
+                clientSpawn.SpawnClient();
+
+
+
             }
         }
         

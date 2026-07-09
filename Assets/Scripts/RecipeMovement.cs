@@ -11,14 +11,10 @@ public class RecipeMovement : MonoBehaviour
     [SerializeField] private float raiseSpeed;
     [SerializeField] private float fallSpeed;
     private Rigidbody componentRb;
-    public float xpos;
-    public float zpos;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         delieverStage = GameObject.FindGameObjectWithTag("DelieverStage");
-        xpos = delieverStage.transform.position.x;
-        zpos = delieverStage.transform.position.z;
         componentRb = GetComponent<Rigidbody>();
 
     }

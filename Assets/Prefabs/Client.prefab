@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8963985297650676983}
+  - component: {fileID: 3546451100359102732}
+  - component: {fileID: -4990582473540988194}
   m_Layer: 0
   m_Name: Client
   m_TagString: Untagged
@@ -32,6 +34,33 @@ Transform:
   - {fileID: 7330005573809587255}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3546451100359102732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4774117755000789682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7e99789bf35b3e459dba8949cf2c37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ClientMovement
+  isInDeliveryStage: 0
+  canGoToExit: 0
+  speedMovement: 5
+--- !u!114 &-4990582473540988194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4774117755000789682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c3cb1bf57c7bb940bee1d1ee80f7a19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ClientOrder
 --- !u!1 &4960513270686005803
 GameObject:
   m_ObjectHideFlags: 0
