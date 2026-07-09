@@ -4,14 +4,18 @@ using System.Collections.Generic;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private int gameLevel;
-    [SerializeField] private int nLifes;
+    [SerializeField] private int numberPlayerLifes;
+    [SerializeField] private float numberOrdersByDay;
+    [SerializeField] private int numberOrdersBasicsByDay = 4;
+    [SerializeField] private float difficultyIncreaseRate = 0.4f;
     Component[] components;
     public bool isAnyComponentSelected;
-    [SerializeField] private List<string> costumeOrder = new List<string>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        gameLevel = 0;
+        numberOrdersByDay = numberOrdersBasicsByDay;
         isAnyComponentSelected = false;
     }
 
@@ -23,7 +27,7 @@ public class GameManager : MonoBehaviour
 
     public void SumarVida(int amount)
     {
-        nLifes += amount;
+        numberPlayerLifes += amount;
     }
 
     public void IsAnyObjectSelected()
@@ -36,7 +40,7 @@ public class GameManager : MonoBehaviour
             {
                 if (component.isSelected)
                 {
-                    Debug.Log("Si encontro");
+                    //Debug.Log("Si encontro");
                     isAnyComponentSelected = true;
                     break;
                 }
@@ -46,5 +50,11 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void IncreaseDificulty()
+    {
+        gameLevel += 1;
+        numberOrdersByDay = Mathf.RoundToInt(numberOrdersBasicsByDay + (1 *(gameLevel * difficultyIncreaseRate)));
     }
 }
