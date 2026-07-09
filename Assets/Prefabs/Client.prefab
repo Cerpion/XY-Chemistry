@@ -61,6 +61,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c3cb1bf57c7bb940bee1d1ee80f7a19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClientOrder
+  items:
+  - {fileID: 11400000, guid: ea5c6f7010aa6444a98a25760f2f9882, type: 2}
+  - {fileID: 11400000, guid: 8c33772f0905dfa438350069cb146a72, type: 2}
+  - {fileID: 11400000, guid: 088be9a6b1b0d6742ad0b2a3bd4bef3b, type: 2}
+  - {fileID: 11400000, guid: 301add5b4573afb4aa41d4629e6ba27c, type: 2}
+  hasOrderInProgress: 0
+  costumeOrder: {fileID: 0}
 --- !u!1 &4960513270686005803
 GameObject:
   m_ObjectHideFlags: 0
