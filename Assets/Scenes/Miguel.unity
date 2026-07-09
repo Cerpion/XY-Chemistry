@@ -793,6 +793,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 248298636}
+  - component: {fileID: 248298637}
   m_Layer: 0
   m_Name: Potion2
   m_TagString: Untagged
@@ -816,6 +817,27 @@ Transform:
   - {fileID: 284544235}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &248298637
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248298635}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.6191962, y: 0.64207405, z: 0.68686736}
+  m_Center: {x: 0, y: 0.294423, z: 0}
 --- !u!1 &284544234
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,9 +998,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 427378483}
+  - component: {fileID: 427378485}
+  - component: {fileID: 427378484}
   m_Layer: 0
   m_Name: Cauldron
-  m_TagString: Untagged
+  m_TagString: DelieverStage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -999,6 +1023,44 @@ Transform:
   - {fileID: 894764632}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &427378484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427378482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f824181072ada5845b39cc2716061002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mixer
+  recipeConfiguration: {fileID: 11400000, guid: d983272754f108c4395d83cd04e61883, type: 2}
+  trashData: {fileID: 11400000, guid: f3a5679718f87634c9c003ccc9bb840f, type: 2}
+  nClicksToMix: 4
+  nClicks: 0
+  _craft: 0
+--- !u!65 &427378485
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427378482}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.9052836, y: 1.363367, z: 1.9011791}
+  m_Center: {x: -0.0076717734, y: 0.5959658, z: 0.0036634207}
 --- !u!1 &497090024
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,6 +1243,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 626367144}
+  - component: {fileID: 626367145}
   m_Layer: 0
   m_Name: Potion3
   m_TagString: Untagged
@@ -1204,6 +1267,27 @@ Transform:
   - {fileID: 121998951}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &626367145
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626367143}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.6420858, y: 0.67707276, z: 0.6689292}
+  m_Center: {x: 0, y: 0.26537764, z: 0}
 --- !u!1001 &648779697
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3157,6 +3241,54 @@ Transform:
   - {fileID: 801721559}
   m_Father: {fileID: 2067137180}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1804112703
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1804112705}
+  - component: {fileID: 1804112704}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1804112704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804112703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fc50bfd50ecc714f95acba201ff7e79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  gameLevel: 0
+  nLifes: 0
+  isAnyComponentSelected: 0
+  costumeOrder: []
+--- !u!4 &1804112705
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804112703}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.75441, y: 2.53885, z: -1.2772}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1824264555
 GameObject:
   m_ObjectHideFlags: 0
@@ -3765,6 +3897,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2067137180}
+  - component: {fileID: 2067137182}
+  - component: {fileID: 2067137183}
   m_Layer: 0
   m_Name: Potion1
   m_TagString: Untagged
@@ -3788,6 +3922,45 @@ Transform:
   - {fileID: 1760429174}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2067137182
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067137179}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.6305384, y: 0.69980395, z: 0.66961825}
+  m_Center: {x: 0, y: 0.271331, z: 0}
+--- !u!114 &2067137183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067137179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f88fb42fd14084b4bb9dbf019bb55bfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Component
+  offset: {x: 0, y: 0.2, z: 0}
+  isSelected: 0
+  originalPos: {x: 0, y: 0, z: 0}
+  originalRot: {x: 0, y: 0, z: 0, w: 0}
+  moveSpeed: -0.01
+  itemData: {fileID: 11400000, guid: 50e7766e6c50f3c47bbbef2677188048, type: 2}
 --- !u!1 &2099089614
 GameObject:
   m_ObjectHideFlags: 0
@@ -3797,6 +3970,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2099089615}
+  - component: {fileID: 2099089616}
   m_Layer: 0
   m_Name: Potion4
   m_TagString: Untagged
@@ -3820,6 +3994,27 @@ Transform:
   - {fileID: 878700291}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2099089616
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099089614}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.64567614, y: 0.64784694, z: 0.65217686}
+  m_Center: {x: 0, y: 0.26844454, z: 0}
 --- !u!1001 &2128105295
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3951,3 +4146,4 @@ SceneRoots:
   - {fileID: 248298636}
   - {fileID: 626367144}
   - {fileID: 2099089615}
+  - {fileID: 1804112705}
