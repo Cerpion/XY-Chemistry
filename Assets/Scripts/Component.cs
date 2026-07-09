@@ -27,9 +27,11 @@ public class Component : MonoBehaviour
     {
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
+            //Debug.Log("Click");
             Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
+               // Debug.Log("Entro al Raycast");
                 // If ray hit this enemy, destroy it
                 if (hit.transform == transform && !isSelected && !gameManager.isAnyComponentSelected)
                 {
@@ -56,6 +58,7 @@ public class Component : MonoBehaviour
 
             float deltaX = Mouse.current.delta.ReadValue().x;
 
+            //transform.position += new Vector3(deltaX * moveSpeed * Time.deltaTime, 0f, 0f);
             transform.position += new Vector3(deltaX * moveSpeed, 0f, 0f);
         }
     }

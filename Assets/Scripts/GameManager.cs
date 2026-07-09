@@ -5,6 +5,9 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private int gameLevel;
     [SerializeField] private int nLifes;
+    [SerializeField] private float nOrder;
+    [SerializeField] private int nOrderBasic = 4;
+    [SerializeField] private float difIncreaseRate = 0.4f;
     Component[] components;
     public bool isAnyComponentSelected;
     [SerializeField] private List<string> costumeOrder = new List<string>();
@@ -12,6 +15,8 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        gameLevel = 0;
+        nOrder = nOrderBasic;
         isAnyComponentSelected = false;
     }
 
@@ -36,7 +41,7 @@ public class GameManager : MonoBehaviour
             {
                 if (component.isSelected)
                 {
-                    Debug.Log("Si encontro");
+                    //Debug.Log("Si encontro");
                     isAnyComponentSelected = true;
                     break;
                 }
@@ -46,5 +51,11 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void IncreaseDificulty()
+    {
+        gameLevel += 1;
+        nOrder = Mathf.RoundToInt(nOrderBasic + (1 *(gameLevel * difIncreaseRate)));
     }
 }

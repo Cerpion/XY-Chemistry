@@ -44,8 +44,9 @@ public class Mixer : MonoBehaviour
 
         if (_craft)
         {
+            //Debug.Log("instancio");
             var item = craftSystem.Craft();
-            Debug.Log(item.ID);
+            //Debug.Log(item.ID);
             Instantiate(item.Prefab,transform);
             _craft = false;
             
@@ -54,7 +55,7 @@ public class Mixer : MonoBehaviour
 
     public void AddComponent(ItemData item)
     {
-        Debug.Log("Entro");
+        //Debug.Log("Entro");
         craftSystem.AddItem(item);
     }
 }
