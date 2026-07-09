@@ -26,7 +26,7 @@ public class CraftSystem : ICraftSystem
 
         if (recipe == null)
         {
-
+            _input.Clear();
             return _trash;
         }
 

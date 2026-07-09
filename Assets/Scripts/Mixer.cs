@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 using static UnityEditor.Progress;
 
 public class Mixer : MonoBehaviour
@@ -14,6 +15,8 @@ public class Mixer : MonoBehaviour
     [SerializeField] private int nClicksToMix;
     [SerializeField] private int nClicks;
     [SerializeField] private bool _craft;
+    private RecipeMovement recipe;
+    public ItemID recipeID;
     void Start()
     {
         nClicksToMix = 4;
@@ -46,8 +49,13 @@ public class Mixer : MonoBehaviour
         {
             //Debug.Log("instancio");
             var item = craftSystem.Craft();
+            recipeID = item.ItemID;
             //Debug.Log(item.ID);
-            Instantiate(item.Prefab,transform);
+            GameObject recipeObject = Instantiate(item.Prefab,transform);
+            recipe = recipeObject.GetComponent<RecipeMovement>();
+
+            //recipe.recipeID = item.ItemID;
+            recipe.DefineRecipeID(recipeID);
             _craft = false;
             
         }

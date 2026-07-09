@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb9868c01f7327b42b41cae7451f2a12, type: 3}
   m_Name: asdfasdf
   m_EditorClassIdentifier: Assembly-CSharp::ItemStats
-  ItemID: {fileID: 11400000, guid: 8c33772f0905dfa438350069cb146a72, type: 2}
+  ItemID: {fileID: 11400000, guid: 088be9a6b1b0d6742ad0b2a3bd4bef3b, type: 2}
   Icon: {fileID: 0}
   Name: 
   Prefab: {fileID: 3391515086855278462, guid: 3adaebda203cc6641a36261211a2a8d0, type: 3}

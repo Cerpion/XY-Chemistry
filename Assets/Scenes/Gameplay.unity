@@ -1368,6 +1368,7 @@ MonoBehaviour:
   nClicksToMix: 4
   nClicks: 0
   _craft: 0
+  recipeID: {fileID: 0}
 --- !u!1 &497090024
 GameObject:
   m_ObjectHideFlags: 0
@@ -3363,10 +3364,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   gameLevel: 0
-  numberPlayerLifes: 0
+  numberPlayerLifes: 3
   numberOrdersByDay: 0
   numberOrdersBasicsByDay: 4
   difficultyIncreaseRate: 0.4
+  numberSuccessfulOrders: 0
   isAnyComponentSelected: 0
 --- !u!4 &1266683848
 Transform:
@@ -3399,7 +3401,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1266936689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4608,7 +4610,7 @@ Transform:
   m_GameObject: {fileID: 1906667104}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7, y: 0, z: -4.5}
+  m_LocalPosition: {x: -7, y: 1.6, z: -4.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
