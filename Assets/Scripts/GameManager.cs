@@ -35,22 +35,25 @@ public class GameManager : MonoBehaviour
 
         StartSpawn();
 
+        _hub.RecipeSpawner.SpawnRecipes(_currentDay.Recipes);
     }
 
 
     public void StartSpawn()
     {
-        if (_currentClient >= _currentDay.ClientDay.Length)
-        {
-            Debug.Log("DayComplete");
-            return;
-        }
 
         TrySpawnClient();
     }
 
     public void TrySpawnClient()
     {
+
+        if (_currentClient >= _currentDay.ClientDay.Length)
+        {
+            Debug.Log("DayComplete");
+            return;
+        }
+
         var getClient = _currentDay.ClientDay[_currentClient];
 
         _clientSpawner.SpawnClient(getClient);
@@ -74,7 +77,6 @@ public class GameManager : MonoBehaviour
     public void FailedOrder()
     {
         ReciveDamage();
-        _currentClient++;
     }
 
     public void PauseGame(bool pause)
@@ -99,14 +101,20 @@ public class GameManager : MonoBehaviour
     {
         if (itemDelivered.ID == _clientSpawner.CurrentClient.RequestedOrder.ID)
         {
-            _currentClient++;
-            _clientSpawner.CurrentClient.ExitToShop();
+            NiceTry();
             return;
         }
+        ReciveDamage();
+    }
 
+    public void NiceTry()
+    {
         _currentClient++;
         _clientSpawner.CurrentClient.ExitToShop();
-        ReciveDamage();
+        _hub.RecipeView.Hide();
+
+        _audioSource.clip = _nice;
+        _audioSource.Play();
     }
 
     private void ReciveDamage()
@@ -117,6 +125,9 @@ public class GameManager : MonoBehaviour
         numberPlayerLives += -1;
         _hub.LifeView.Damage((MAX_PLAYER_LIVES - numberPlayerLives) - 1);
         _hub.RecipeView.Hide();
+
+        _currentClient++;
+        _clientSpawner.CurrentClient.ExitToShop();
 
         if (numberPlayerLives <= 0)
         {

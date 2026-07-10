@@ -91,7 +91,6 @@ public class ClientMovement : MonoBehaviour
         if (_currentTime > _maxTime)
         {
             OnFailedOrder?.Invoke();
-            ExitToShop();
             _isOrder = false;
             return;
         }

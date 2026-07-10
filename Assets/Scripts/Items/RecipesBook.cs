@@ -18,18 +18,19 @@ public class RecipesBook : SelectedObject
         _normalCamera.Priority = 5;
         _RecipeBook.gameObject.SetActive(true);
 
-        _RecipeBook.LeanAlpha(1, 0.2f).setDelay(0.8f);
+        LeanTween.cancel(_RecipeBook.gameObject);
+        _RecipeBook.LeanAlpha(1, 0.8f);
     }
 
     public override void EndInteraction()
     {
         _normalCamera.Priority = 10;
         _recipeCamera.Priority = 5;
-        _RecipeBook.gameObject.SetActive(false);
 
-        _RecipeBook.LeanAlpha(0, 0.2f).setDelay(0.8f).setOnComplete(() =>
+        LeanTween.cancel(_RecipeBook.gameObject);
+        _RecipeBook.LeanAlpha(0, 0.8f).setOnComplete(() =>
         {
-            //OnFinished?.Invoke();
+            _RecipeBook.gameObject.SetActive(false);
         });
     }
 
