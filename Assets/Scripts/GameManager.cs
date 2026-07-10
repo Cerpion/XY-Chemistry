@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Profiling;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private DayConfiguration _day;
@@ -17,6 +18,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioClip _damage;
     [SerializeField] private AudioClip _nice;
 
+    [SerializeField] private Potion[] _potions;
+
     private int _indexCurrentDay;
     private int _currentClient;
     private Day _currentDay;
@@ -31,17 +34,36 @@ public class GameManager : MonoBehaviour
         _cauldron.SendOrder += CompareRecipes;
         _selector.OnPauseGame += PauseGame;
 
-        _currentDay = _day.Day[_indexCurrentDay];
 
-        StartSpawn();
+        StartNewDay();
 
         _hub.RecipeSpawner.SpawnRecipes(_currentDay.Recipes);
     }
 
-
-    public void StartSpawn()
+    private void UpdatePotions()
     {
+        foreach (var potion in _potions)
+        {
+            bool found = false;
 
+            foreach (var itemInDay in _currentDay.ItemsDay)
+            {
+                if (potion.itemData.ID == itemInDay.ID)
+                {
+                    found = true;
+                    break;
+                }
+            }
+
+            potion.gameObject.SetActive(found);
+        }
+    }
+
+
+    public void StartNewDay()
+    {
+        _currentDay = _day.Day[_indexCurrentDay];
+        UpdatePotions();
         TrySpawnClient();
     }
 
@@ -51,6 +73,21 @@ public class GameManager : MonoBehaviour
         if (_currentClient >= _currentDay.ClientDay.Length)
         {
             Debug.Log("DayComplete");
+            _currentClient = 0;
+            _indexCurrentDay++;
+
+            if (_indexCurrentDay >= _day.Day.Length)
+            {
+                Debug.Log("Victory");
+                _hub.VictoryView.Show();
+                return;
+            }
+
+            var sequence = LeanTween.sequence();
+            sequence.append(() => _hub.NextDay.Show(_indexCurrentDay));
+            sequence.append(3f);
+            sequence.append(StartNewDay);
+            sequence.append(() => _hub.NextDay.Hide());
             return;
         }
 

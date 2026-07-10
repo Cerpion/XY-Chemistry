@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Potion : SelectedObject
 {
-    [SerializeField] private ItemData itemData;
+    [SerializeField] public ItemData itemData;
 
     [SerializeField] private float _offset = 3f;
     [SerializeField] private float _zOffset = 0;

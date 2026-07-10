@@ -6,6 +6,8 @@ public class RecipesBook : SelectedObject
     [SerializeField] private CinemachineCamera _recipeCamera;
     [SerializeField] private CinemachineCamera _normalCamera;
     [SerializeField] private CanvasGroup _RecipeBook;
+    [SerializeField] private AudioClip _book;
+    [SerializeField] private AudioSource _audioSource;
 
     private void Awake()
     {
@@ -20,6 +22,9 @@ public class RecipesBook : SelectedObject
 
         LeanTween.cancel(_RecipeBook.gameObject);
         _RecipeBook.LeanAlpha(1, 0.8f);
+
+        _audioSource.clip = _book;
+        _audioSource.Play();
     }
 
     public override void EndInteraction()

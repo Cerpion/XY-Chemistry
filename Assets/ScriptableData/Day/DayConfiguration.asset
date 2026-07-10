@@ -1,0 +1,197 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03deb9ae7e71aca429e6bd9922f2966b, type: 3}
+  m_Name: DayConfiguration
+  m_EditorClassIdentifier: Assembly-CSharp::DayConfiguration
+  Day:
+  - DayNumber: 1
+    Recipes:
+    - {fileID: 11400000, guid: 8f500452a5fbaee4ba9e0e3b62d88487, type: 2}
+    ItemsDay:
+    - {fileID: 11400000, guid: ea5c6f7010aa6444a98a25760f2f9882, type: 2}
+    - {fileID: 11400000, guid: 8c33772f0905dfa438350069cb146a72, type: 2}
+    ClientDay:
+    - ClientStats: {fileID: 11400000, guid: 8959ce2366b0a344e8a0052a96ec7ac4, type: 2}
+      Order: {fileID: 11400000, guid: e63b8ad2ffe605e4cba6e0ea223a50a1, type: 2}
+      ClientTime: 50
+  - DayNumber: 2
+    Recipes:
+    - {fileID: 11400000, guid: 8f500452a5fbaee4ba9e0e3b62d88487, type: 2}
+    - {fileID: 11400000, guid: 1fefdec1b2ec90c4ea95e98439e1938f, type: 2}
+    ItemsDay:
+    - {fileID: 11400000, guid: ea5c6f7010aa6444a98a25760f2f9882, type: 2}
+    - {fileID: 11400000, guid: 8c33772f0905dfa438350069cb146a72, type: 2}
+    - {fileID: 11400000, guid: 301add5b4573afb4aa41d4629e6ba27c, type: 2}
+    ClientDay:
+    - ClientStats: {fileID: 11400000, guid: 8959ce2366b0a344e8a0052a96ec7ac4, type: 2}
+      Order: {fileID: 11400000, guid: 96095eb3a3ef10d4dafe8bd0ae8d02e8, type: 2}
+      ClientTime: 45
+    - ClientStats: {fileID: 11400000, guid: df0759b26a6df99469e9acd4e36f41b5, type: 2}
+      Order: {fileID: 11400000, guid: e63b8ad2ffe605e4cba6e0ea223a50a1, type: 2}
+      ClientTime: 45
+    - ClientStats: {fileID: 11400000, guid: 8959ce2366b0a344e8a0052a96ec7ac4, type: 2}
+      Order: {fileID: 11400000, guid: 96095eb3a3ef10d4dafe8bd0ae8d02e8, type: 2}
+      ClientTime: 45
+  - DayNumber: 3
+    Recipes:
+    - {fileID: 11400000, guid: 8f500452a5fbaee4ba9e0e3b62d88487, type: 2}
+    - {fileID: 11400000, guid: 1fefdec1b2ec90c4ea95e98439e1938f, type: 2}
+    - {fileID: 11400000, guid: 89a9e4d50c3449c4db4754bea0177cb8, type: 2}
+    ItemsDay:
+    - {fileID: 11400000, guid: ea5c6f7010aa6444a98a25760f2f9882, type: 2}
+    - {fileID: 11400000, guid: 8c33772f0905dfa438350069cb146a72, type: 2}
+    - {fileID: 11400000, guid: 301add5b4573afb4aa41d4629e6ba27c, type: 2}
+    ClientDay:
+    - ClientStats: {fileID: 11400000, guid: 8959ce2366b0a344e8a0052a96ec7ac4, type: 2}
+      Order: {fileID: 11400000, guid: b1698406d8a5270488f18864c5a29016, type: 2}
+      ClientTime: 45
+    - ClientStats: {fileID: 11400000, guid: df0759b26a6df99469e9acd4e36f41b5, type: 2}
+      Order: {fileID: 11400000, guid: e63b8ad2ffe605e4cba6e0ea223a50a1, type: 2}
+      ClientTime: 40
+    - ClientStats: {fileID: 11400000, guid: 296a5d97a36fa8e45b4607ca5759559d, type: 2}
+      Order: {fileID: 11400000, guid: 96095eb3a3ef10d4dafe8bd0ae8d02e8, type: 2}
+      ClientTime: 35
+  - DayNumber: 4
+    Recipes:
+    - {fileID: 11400000, guid: 8f500452a5fbaee4ba9e0e3b62d88487, type: 2}
+    - {fileID: 11400000, guid: 1fefdec1b2ec90c4ea95e98439e1938f, type: 2}
+    - {fileID: 11400000, guid: 89a9e4d50c3449c4db4754bea0177cb8, type: 2}
+    - {fileID: 11400000, guid: 288ce8c86f5cbb7448d7b2dcd9076878, type: 2}
+    ItemsDay:
+    - {fileID: 11400000, guid: ea5c6f7010aa6444a98a25760f2f9882, type: 2}
+    - {fileID: 11400000, guid: 8c33772f0905dfa438350069cb146a72, type: 2}
+    - {fileID: 11400000, guid: 301add5b4573afb4aa41d4629e6ba27c, type: 2}
+    - {fileID: 11400000, guid: 088be9a6b1b0d6742ad0b2a3bd4bef3b, type: 2}
+    ClientDay:
+    - ClientStats: {fileID: 11400000, guid: df0759b26a6df99469e9acd4e36f41b5, type: 2}
+      Order: {fileID: 11400000, guid: 0c763a1cfbb3cd84f848cf3e43b9a9aa, type: 2}
+      ClientTime: 45
+    - ClientStats: {fileID: 11400000, guid: df0759b26a6df99469e9acd4e36f41b5, type: 2}
+      Order: {fileID: 11400000, guid: b1698406d8a5270488f18864c5a29016, type: 2}
+      ClientTime: 40
+    - ClientStats: {fileID: 11400000, guid: 8959ce2366b0a344e8a0052a96ec7ac4, type: 2}
+      Order: {fileID: 11400000, guid: 96095eb3a3ef10d4dafe8bd0ae8d02e8, type: 2}
+      ClientTime: 35
+    - ClientStats: {fileID: 11400000, guid: 296a5d97a36fa8e45b4607ca5759559d, type: 2}
+      Order: {fileID: 11400000, guid: 0c763a1cfbb3cd84f848cf3e43b9a9aa, type: 2}
+      ClientTime: 35
+  - DayNumber: 5
+    Recipes:
+    - {fileID: 11400000, guid: 8f500452a5fbaee4ba9e0e3b62d88487, type: 2}
+    - {fileID: 11400000, guid: 1fefdec1b2ec90c4ea95e98439e1938f, type: 2}
+    - {fileID: 11400000, guid: 89a9e4d50c3449c4db4754bea0177cb8, type: 2}
+    - {fileID: 11400000, guid: 288ce8c86f5cbb7448d7b2dcd9076878, type: 2}
+    - {fileID: 11400000, guid: 8f7da653d4d987b43b96f321de5dd7d1, type: 2}
+    ItemsDay:
+    - {fileID: 11400000, guid: ea5c6f7010aa6444a98a25760f2f9882, type: 2}
+    - {fileID: 11400000, guid: 8c33772f0905dfa438350069cb146a72, type: 2}
+    - {fileID: 11400000, guid: 301add5b4573afb4aa41d4629e6ba27c, type: 2}
+    - {fileID: 11400000, guid: 088be9a6b1b0d6742ad0b2a3bd4bef3b, type: 2}
+    ClientDay:
+    - ClientStats: {fileID: 11400000, guid: 8959ce2366b0a344e8a0052a96ec7ac4, type: 2}
+      Order: {fileID: 11400000, guid: 667d7affc2ccb8a4dbab11204aca2b01, type: 2}
+      ClientTime: 40
+    - ClientStats: {fileID: 11400000, guid: 296a5d97a36fa8e45b4607ca5759559d, type: 2}
+      Order: {fileID: 11400000, guid: b1698406d8a5270488f18864c5a29016, type: 2}
+      ClientTime: 40
+    - ClientStats: {fileID: 11400000, guid: 8959ce2366b0a344e8a0052a96ec7ac4, type: 2}
+      Order: {fileID: 11400000, guid: e63b8ad2ffe605e4cba6e0ea223a50a1, type: 2}
+      ClientTime: 35
+    - ClientStats: {fileID: 11400000, guid: df0759b26a6df99469e9acd4e36f41b5, type: 2}
+      Order: {fileID: 11400000, guid: 0c763a1cfbb3cd84f848cf3e43b9a9aa, type: 2}
+      ClientTime: 35
+  - DayNumber: 6
+    Recipes:
+    - {fileID: 11400000, guid: 8f500452a5fbaee4ba9e0e3b62d88487, type: 2}
+    - {fileID: 11400000, guid: 1fefdec1b2ec90c4ea95e98439e1938f, type: 2}
+    - {fileID: 11400000, guid: 89a9e4d50c3449c4db4754bea0177cb8, type: 2}
+    - {fileID: 11400000, guid: 288ce8c86f5cbb7448d7b2dcd9076878, type: 2}
+    - {fileID: 11400000, guid: 8f7da653d4d987b43b96f321de5dd7d1, type: 2}
+    - {fileID: 11400000, guid: 03b62b480f57d6c408b4836383aef31f, type: 2}
+    ItemsDay:
+    - {fileID: 11400000, guid: ea5c6f7010aa6444a98a25760f2f9882, type: 2}
+    - {fileID: 11400000, guid: 8c33772f0905dfa438350069cb146a72, type: 2}
+    - {fileID: 11400000, guid: 301add5b4573afb4aa41d4629e6ba27c, type: 2}
+    - {fileID: 11400000, guid: 088be9a6b1b0d6742ad0b2a3bd4bef3b, type: 2}
+    ClientDay:
+    - ClientStats: {fileID: 11400000, guid: df0759b26a6df99469e9acd4e36f41b5, type: 2}
+      Order: {fileID: 11400000, guid: 7249054e873bbe043b9c6cc95583ce3c, type: 2}
+      ClientTime: 35
+    - ClientStats: {fileID: 11400000, guid: df0759b26a6df99469e9acd4e36f41b5, type: 2}
+      Order: {fileID: 11400000, guid: 667d7affc2ccb8a4dbab11204aca2b01, type: 2}
+      ClientTime: 30
+    - ClientStats: {fileID: 11400000, guid: 8959ce2366b0a344e8a0052a96ec7ac4, type: 2}
+      Order: {fileID: 11400000, guid: 7249054e873bbe043b9c6cc95583ce3c, type: 2}
+      ClientTime: 30
+    - ClientStats: {fileID: 11400000, guid: 8959ce2366b0a344e8a0052a96ec7ac4, type: 2}
+      Order: {fileID: 11400000, guid: 0c763a1cfbb3cd84f848cf3e43b9a9aa, type: 2}
+      ClientTime: 30
+  - DayNumber: 7
+    Recipes:
+    - {fileID: 11400000, guid: 8f500452a5fbaee4ba9e0e3b62d88487, type: 2}
+    - {fileID: 11400000, guid: 1fefdec1b2ec90c4ea95e98439e1938f, type: 2}
+    - {fileID: 11400000, guid: 89a9e4d50c3449c4db4754bea0177cb8, type: 2}
+    - {fileID: 11400000, guid: 288ce8c86f5cbb7448d7b2dcd9076878, type: 2}
+    - {fileID: 11400000, guid: 8f7da653d4d987b43b96f321de5dd7d1, type: 2}
+    - {fileID: 11400000, guid: 03b62b480f57d6c408b4836383aef31f, type: 2}
+    - {fileID: 11400000, guid: 63324fa89e2e6fa41a5fa5fb4f13203a, type: 2}
+    ItemsDay:
+    - {fileID: 11400000, guid: ea5c6f7010aa6444a98a25760f2f9882, type: 2}
+    - {fileID: 11400000, guid: 8c33772f0905dfa438350069cb146a72, type: 2}
+    - {fileID: 11400000, guid: 301add5b4573afb4aa41d4629e6ba27c, type: 2}
+    - {fileID: 11400000, guid: 088be9a6b1b0d6742ad0b2a3bd4bef3b, type: 2}
+    ClientDay:
+    - ClientStats: {fileID: 11400000, guid: 296a5d97a36fa8e45b4607ca5759559d, type: 2}
+      Order: {fileID: 11400000, guid: afe4401a6caa2c74e98d6f575995ae0e, type: 2}
+      ClientTime: 35
+    - ClientStats: {fileID: 11400000, guid: 296a5d97a36fa8e45b4607ca5759559d, type: 2}
+      Order: {fileID: 11400000, guid: 667d7affc2ccb8a4dbab11204aca2b01, type: 2}
+      ClientTime: 30
+    - ClientStats: {fileID: 11400000, guid: df0759b26a6df99469e9acd4e36f41b5, type: 2}
+      Order: {fileID: 11400000, guid: b1698406d8a5270488f18864c5a29016, type: 2}
+      ClientTime: 30
+    - ClientStats: {fileID: 11400000, guid: 8959ce2366b0a344e8a0052a96ec7ac4, type: 2}
+      Order: {fileID: 11400000, guid: 0c763a1cfbb3cd84f848cf3e43b9a9aa, type: 2}
+      ClientTime: 30
+    - ClientStats: {fileID: 11400000, guid: 8959ce2366b0a344e8a0052a96ec7ac4, type: 2}
+      Order: {fileID: 11400000, guid: 0c763a1cfbb3cd84f848cf3e43b9a9aa, type: 2}
+      ClientTime: 30
+  - DayNumber: 8
+    Recipes:
+    - {fileID: 11400000, guid: 8f500452a5fbaee4ba9e0e3b62d88487, type: 2}
+    - {fileID: 11400000, guid: 1fefdec1b2ec90c4ea95e98439e1938f, type: 2}
+    - {fileID: 11400000, guid: 89a9e4d50c3449c4db4754bea0177cb8, type: 2}
+    - {fileID: 11400000, guid: 288ce8c86f5cbb7448d7b2dcd9076878, type: 2}
+    - {fileID: 11400000, guid: 8f7da653d4d987b43b96f321de5dd7d1, type: 2}
+    - {fileID: 11400000, guid: 03b62b480f57d6c408b4836383aef31f, type: 2}
+    - {fileID: 11400000, guid: 63324fa89e2e6fa41a5fa5fb4f13203a, type: 2}
+    ItemsDay:
+    - {fileID: 11400000, guid: ea5c6f7010aa6444a98a25760f2f9882, type: 2}
+    - {fileID: 11400000, guid: 8c33772f0905dfa438350069cb146a72, type: 2}
+    - {fileID: 11400000, guid: 301add5b4573afb4aa41d4629e6ba27c, type: 2}
+    - {fileID: 11400000, guid: 088be9a6b1b0d6742ad0b2a3bd4bef3b, type: 2}
+    ClientDay:
+    - ClientStats: {fileID: 11400000, guid: df0759b26a6df99469e9acd4e36f41b5, type: 2}
+      Order: {fileID: 11400000, guid: b1698406d8a5270488f18864c5a29016, type: 2}
+      ClientTime: 30
+    - ClientStats: {fileID: 11400000, guid: 8959ce2366b0a344e8a0052a96ec7ac4, type: 2}
+      Order: {fileID: 11400000, guid: e63b8ad2ffe605e4cba6e0ea223a50a1, type: 2}
+      ClientTime: 30
+    - ClientStats: {fileID: 11400000, guid: 296a5d97a36fa8e45b4607ca5759559d, type: 2}
+      Order: {fileID: 11400000, guid: 667d7affc2ccb8a4dbab11204aca2b01, type: 2}
+      ClientTime: 30
+    - ClientStats: {fileID: 11400000, guid: df0759b26a6df99469e9acd4e36f41b5, type: 2}
+      Order: {fileID: 11400000, guid: 0c763a1cfbb3cd84f848cf3e43b9a9aa, type: 2}
+      ClientTime: 25
+    - ClientStats: {fileID: 11400000, guid: 8959ce2366b0a344e8a0052a96ec7ac4, type: 2}
+      Order: {fileID: 11400000, guid: b1698406d8a5270488f18864c5a29016, type: 2}
+      ClientTime: 25

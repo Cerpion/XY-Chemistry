@@ -57,7 +57,7 @@ public class ClientMovement : MonoBehaviour
         _spriteRenderer.sprite = _clientData.Talk;
 
         _audioSource.clip = _clientData.Voice;
-        _audioSource.pitch = UnityEngine.Random.Range(0.8f, 1.2f);
+        _audioSource.pitch = UnityEngine.Random.Range(0.6f, 1.4f);
         _audioSource.Play();
 
         _canvas.SetActive(true);

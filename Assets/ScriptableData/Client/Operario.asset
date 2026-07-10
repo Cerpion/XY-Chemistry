@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a76003a96db2ce4c8cfb2675a72ec4b, type: 3}
-  m_Name: Client
+  m_Name: Operario
   m_EditorClassIdentifier: Assembly-CSharp::ClientStats
-  Walk: {fileID: 21300000, guid: 3c251b23e2923b448a7c042730bd5b1b, type: 3}
-  Talk: {fileID: 21300000, guid: 9a70db9f4d1b9f3468b9a054266183dd, type: 3}
-  Voice: {fileID: 8300000, guid: 8166183864239854ba325cc3e9142749, type: 3}
+  Walk: {fileID: 21300000, guid: fb7f44b6c5907ed4984afc7f7e8becc2, type: 3}
+  Talk: {fileID: 21300000, guid: 6d4d9370e233ff1489bbac25f0e15ce9, type: 3}
+  Voice: {fileID: 8300000, guid: a7f0eb773b8aa5c4d9734df36d017fce, type: 3}
   Prefab: {fileID: 3546451100359102732, guid: facd434ce4c991b44bbbb54068b394b1, type: 3}
