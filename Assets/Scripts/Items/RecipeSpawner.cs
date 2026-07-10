@@ -22,7 +22,7 @@ public class RecipeSpawner : MonoBehaviour
     {
         for (int i = 0; i < _recipesBoxList.Count; i++)
         {
-            Destroy(_recipesBoxList[i]);
+            Destroy(_recipesBoxList[i].gameObject);
         }
 
         _recipesBoxList.Clear();

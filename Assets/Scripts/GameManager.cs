@@ -36,8 +36,6 @@ public class GameManager : MonoBehaviour
 
 
         StartNewDay();
-
-        _hub.RecipeSpawner.SpawnRecipes(_currentDay.Recipes);
     }
 
     private void UpdatePotions()
@@ -63,6 +61,9 @@ public class GameManager : MonoBehaviour
     public void StartNewDay()
     {
         _currentDay = _day.Day[_indexCurrentDay];
+        _hub.RecipeSpawner.ClearRecipes();
+        _hub.RecipeSpawner.SpawnRecipes(_currentDay.Recipes);
+
         UpdatePotions();
         TrySpawnClient();
     }
