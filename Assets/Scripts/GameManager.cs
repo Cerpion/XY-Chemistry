@@ -3,88 +3,124 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private DayConfiguration _day;
 
+    [SerializeField] private HUB _hub;
+
+    [SerializeField] private Selector _selector;
     [SerializeField] private ClientSpawner _clientSpawner;
 
     [SerializeField] private Cauldron _cauldron;
 
-    [SerializeField] private int gameLevel;
-    [SerializeField] private int numberPlayerLifes;
-    [SerializeField] private float numberOrdersByDay;
-    [SerializeField] private int numberOrdersBasicsByDay = 4;
-    [SerializeField] private float difficultyIncreaseRate = 0.4f;
-    [SerializeField] private int numberSuccessfulOrders;
-    Potion[] components;
-    public bool isAnyComponentSelected;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private const int MAX_PLAYER_LIVES = 3;
+    private int numberPlayerLives;
+
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _damage;
+    [SerializeField] private AudioClip _nice;
+
+    private int _indexCurrentDay;
+    private int _currentClient;
+    private Day _currentDay;
+
+
     void Start()
     {
+        numberPlayerLives = MAX_PLAYER_LIVES;
+
         _day = Instantiate(_day);
 
         _cauldron.SendOrder += CompareRecipes;
+        _selector.OnPauseGame += PauseGame;
 
-        gameLevel = 0;
-        numberSuccessfulOrders = 0;
+        _currentDay = _day.Day[_indexCurrentDay];
 
+        StartSpawn();
 
-        numberOrdersByDay = numberOrdersBasicsByDay;
-        isAnyComponentSelected = false;
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void StartSpawn()
     {
-        
+        if (_currentClient >= _currentDay.ClientDay.Length)
+        {
+            Debug.Log("DayComplete");
+            return;
+        }
+
+        TrySpawnClient();
+    }
+
+    public void TrySpawnClient()
+    {
+        var getClient = _currentDay.ClientDay[_currentClient];
+
+        _clientSpawner.SpawnClient(getClient);
+        _clientSpawner.CurrentClient.OnClientExit = TrySpawnClient;
+        _clientSpawner.CurrentClient.OnClientOrder = ShowOrder;
+        _clientSpawner.CurrentClient.OnClientTime = UpdateOrder;
+        _clientSpawner.CurrentClient.OnFailedOrder = FailedOrder;
+    }
+
+    public void ShowOrder(ItemData data)
+    {
+        _hub.RecipeView.SetView(data,_clientSpawner.CurrentClient._clientData);
+        _hub.RecipeView.Show();
+    }
+
+    public void UpdateOrder(float time)
+    {
+        _hub.RecipeView.UpdateFill(time);
+
+    }
+    public void FailedOrder()
+    {
+        ReciveDamage();
+        _currentClient++;
+    }
+
+    public void PauseGame(bool pause)
+    {
+        if (pause)
+        {
+            Time.timeScale = 0;
+            _hub.pauseView.Pause();
+            return;
+        }
+
+        Time.timeScale = 1;
+        _hub.pauseView.Resume();
     }
 
     public void SumarVida(int amount)
     {
-        numberPlayerLifes += amount;
-    }
-
-    public void IsAnyObjectSelected()
-    {
-        components = FindObjectsByType<Potion>(FindObjectsSortMode.None);
-        if (components.Length > 0)
-        {
-            
-            foreach (Potion component in components)
-            {
-                //if (component.isSelected)
-                //{
-                //    //Debug.Log("Si encontro");
-                //    isAnyComponentSelected = true;
-                //    break;
-                //}
-                //else
-                //{
-                //    isAnyComponentSelected = false;
-                //}
-            }
-        }
-    }
-
-    public void IncreaseDificulty()
-    {
-        gameLevel += 1;
-        numberOrdersByDay = Mathf.RoundToInt(numberOrdersBasicsByDay + (1 *(gameLevel * difficultyIncreaseRate)));
-        numberSuccessfulOrders = 0;
+        numberPlayerLives += amount;
     }
 
     public void CompareRecipes(ItemID itemDelivered)
     {
         if (itemDelivered.ID == _clientSpawner.CurrentClient.RequestedOrder.ID)
         {
-            numberSuccessfulOrders += 1;
-
+            _currentClient++;
+            _clientSpawner.CurrentClient.ExitToShop();
             return;
         }
 
-        numberPlayerLifes += -1;
+        _currentClient++;
+        _clientSpawner.CurrentClient.ExitToShop();
+        ReciveDamage();
+    }
 
+    private void ReciveDamage()
+    {
+        _audioSource.clip = _damage;
+        _audioSource.Play();
 
-        if (numberPlayerLifes <= 0)
+        numberPlayerLives += -1;
+        _hub.LifeView.Damage((MAX_PLAYER_LIVES - numberPlayerLives) - 1);
+        _hub.RecipeView.Hide();
+
+        if (numberPlayerLives <= 0)
         {
-            Debug.Log("GameOver");
+            _hub.GameOverView.Show();
         }
     }
 }

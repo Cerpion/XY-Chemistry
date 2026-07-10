@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,10 +6,12 @@ public class Selector : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
     private InputSystem_Actions _input;
-    public bool Busy;
 
     private SelectedObject _currentObject;
     private SelectedObject _selectedItem;
+
+    public Action<bool> OnPauseGame;
+    private bool _isPaused;
 
     private void Awake()
     {
@@ -18,16 +21,18 @@ public class Selector : MonoBehaviour
     private void OnEnable()
     {
         _input.Player.Enable();
-        _input.Player.Attack.started += OnPressStart;
-        _input.Player.Attack.canceled += OnPressEnd;
+        _input.Player.Interact.started += OnPressStart;
+        _input.Player.Interact.canceled += OnPressEnd;
         _input.Player.Pointer.performed += OnPointer;
+        _input.Player.Pause.started += OnPause;
     }
 
     private void OnDisable()
     {
-        _input.Player.Attack.started -= OnPressStart;
-        _input.Player.Attack.canceled -= OnPressEnd;
+        _input.Player.Interact.started -= OnPressStart;
+        _input.Player.Interact.canceled -= OnPressEnd;
         _input.Player.Pointer.performed -= OnPointer;
+        _input.Player.Pause.started += OnPause;
         _input.Player.Disable();
     }
     private void OnPointer(InputAction.CallbackContext ctx)
@@ -35,8 +40,22 @@ public class Selector : MonoBehaviour
        
     }
 
+    private void OnPause(InputAction.CallbackContext ctx)
+    {
+        _isPaused = !_isPaused;
+        OnPauseGame?.Invoke(_isPaused);
+    }
+
+    public void RemovePause()
+    {
+        _isPaused = false;
+    }
+
     private void Update()
     {
+        if (_isPaused)
+            return;
+
         Vector2 mousePosition = Mouse.current.position.ReadValue();
 
         if (_selectedItem != null)
@@ -77,6 +96,9 @@ public class Selector : MonoBehaviour
 
     private void OnPressStart(InputAction.CallbackContext context)
     {
+        if (_isPaused)
+            return;
+
         if (_currentObject != null)
         {
             _selectedItem = _currentObject;
@@ -89,6 +111,9 @@ public class Selector : MonoBehaviour
 
     private void OnPressEnd(InputAction.CallbackContext context)
     {
+        if (_isPaused)
+            return;
+
         if (_selectedItem != null)
         {
             _selectedItem.EndInteraction();
@@ -96,9 +121,4 @@ public class Selector : MonoBehaviour
         }
     }
 
-    private void EndBusy()
-    {
-        _currentObject = null;
-        Busy = false;
-    }
 }

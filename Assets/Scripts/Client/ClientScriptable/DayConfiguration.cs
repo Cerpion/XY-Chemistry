@@ -8,17 +8,9 @@ public class DayConfiguration : ScriptableObject
 }
 
 [System.Serializable]
-public class Day : ScriptableObject
+public class ClientDay
 {
-    public int DayNumber;
-    public Recipe[] Recipes;
-    public ItemID[] ItemsDay;
-    public ClientDay[] ClientDay;
-}
-
-[System.Serializable]
-public class ClientDay : ScriptableObject
-{
-    public ClientStats ClientStats;
-    public ItemID Order;
+    public ClientData ClientStats;
+    public ItemData Order;
+    public float ClientTime;
 }
