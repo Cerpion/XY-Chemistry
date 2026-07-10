@@ -1,4 +1,3 @@
-using UnityEditor.PackageManager;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "DayConfiguration", menuName = "Days/DayConfiguration", order = 0)]
