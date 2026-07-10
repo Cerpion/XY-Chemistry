@@ -1,67 +1,47 @@
-using NUnit.Framework.Interfaces;
-using System.ComponentModel;
 using UnityEngine;
-using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class RecipeMovement : MonoBehaviour
 {
-    private GameObject delieverStage;
-    [SerializeField] private float yLimit;
-    [SerializeField] private bool canFall = false;
-    [SerializeField] private float raiseSpeed;
-    [SerializeField] private float fallSpeed;
-    private Rigidbody componentRb;
-    public ItemID recipeID;
-    private GameManager gameManager;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        delieverStage = GameObject.FindGameObjectWithTag("DelieverStage");
-        componentRb = GetComponent<Rigidbody>();
+    private Cauldron _cauldron;
+    private ItemID _recipeID;
 
+    [SerializeField] private float _rotationSpeed = 45;
+    [SerializeField] private float _yLimit = 5;
+    [SerializeField] private Image _icon;
+    [SerializeField] private Material _backGroundColor;
+
+    private void Update()
+    {
+        transform.GetChild(0).Rotate(Vector3.up * _rotationSpeed * Time.deltaTime, Space.Self);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Initialized(ItemData data, Cauldron cauldron)
     {
-        if (transform.localPosition.y <= yLimit && !canFall)
-        {
-            transform.Translate(Vector3.up * raiseSpeed * Time.deltaTime);
+        _recipeID = data.ItemID;
+        _icon.sprite = data.Icon;
+        _backGroundColor.color = data.IconColor;
 
-        }
-
-        
-        if(transform.localPosition.y >= yLimit)
-        {
-            transform.position = new Vector3(delieverStage.transform.position.x, yLimit, delieverStage.transform.position.z);
-            canFall = true;
-
-        }
-
-        
-        if (canFall)
-        {
-            componentRb.isKinematic = false;
-            transform.Translate(Vector3.down * fallSpeed * Time.deltaTime);
-        }
-        
+        _cauldron = cauldron;
     }
 
-    
-    private void OnCollisionEnter(Collision collision)
+    public void MoveToDeliveryStage(Vector3 deliveryPos)
     {
-        if (collision.gameObject.CompareTag("DelieverStage"))
-        {
-            Debug.Log("Entro");
-            gameManager.CompareRecipes(recipeID);
-            Destroy(gameObject);
-        }
-    }
-    
-    public void DefineRecipeID(ItemID id)
-    {
-        recipeID = id;
+        var newDeliveryPos = deliveryPos;
+        newDeliveryPos.y = _yLimit;
+
+        var sequence = LeanTween.sequence();
+        sequence.append(LeanTween.moveY(gameObject, _yLimit, 1).setEaseInOutCubic());
+        sequence.append(LeanTween.move(gameObject, newDeliveryPos, 0.1f));
+        sequence.append(LeanTween.moveY(gameObject, deliveryPos.y, 1).setEaseInOutCubic());
+        sequence.append(1f);
+
+        sequence.append(OnSequenceFinished);
     }
 
+    private void OnSequenceFinished()
+    {
+        _cauldron?.SendOrder.Invoke(_recipeID);
+        Destroy(gameObject);
+    }
 }

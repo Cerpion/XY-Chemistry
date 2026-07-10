@@ -1,21 +1,31 @@
-using NUnit.Framework;
 using UnityEngine;
-using System.Collections.Generic;
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private DayConfiguration _day;
+
+    [SerializeField] private ClientSpawner _clientSpawner;
+
+    [SerializeField] private Cauldron _cauldron;
+
     [SerializeField] private int gameLevel;
     [SerializeField] private int numberPlayerLifes;
     [SerializeField] private float numberOrdersByDay;
     [SerializeField] private int numberOrdersBasicsByDay = 4;
     [SerializeField] private float difficultyIncreaseRate = 0.4f;
     [SerializeField] private int numberSuccessfulOrders;
-    Component[] components;
+    Potion[] components;
     public bool isAnyComponentSelected;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        _day = Instantiate(_day);
+
+        _cauldron.SendOrder += CompareRecipes;
+
         gameLevel = 0;
         numberSuccessfulOrders = 0;
+
+
         numberOrdersByDay = numberOrdersBasicsByDay;
         isAnyComponentSelected = false;
     }
@@ -33,22 +43,22 @@ public class GameManager : MonoBehaviour
 
     public void IsAnyObjectSelected()
     {
-        components = FindObjectsByType<Component>(FindObjectsSortMode.None);
+        components = FindObjectsByType<Potion>(FindObjectsSortMode.None);
         if (components.Length > 0)
         {
             
-            foreach (Component component in components)
+            foreach (Potion component in components)
             {
-                if (component.isSelected)
-                {
-                    //Debug.Log("Si encontro");
-                    isAnyComponentSelected = true;
-                    break;
-                }
-                else
-                {
-                    isAnyComponentSelected = false;
-                }
+                //if (component.isSelected)
+                //{
+                //    //Debug.Log("Si encontro");
+                //    isAnyComponentSelected = true;
+                //    break;
+                //}
+                //else
+                //{
+                //    isAnyComponentSelected = false;
+                //}
             }
         }
     }
@@ -60,23 +70,21 @@ public class GameManager : MonoBehaviour
         numberSuccessfulOrders = 0;
     }
 
-    public void CompareRecipes(ItemID recipeID)
+    public void CompareRecipes(ItemID itemDelivered)
     {
-        ClientOrder clientOrder = FindAnyObjectByType<ClientOrder>();
-        ClientMovement clientMovement = FindAnyObjectByType<ClientMovement>();
-        if (clientOrder != null)
+        if (itemDelivered.ID == _clientSpawner.CurrentClient.RequestedOrder.ID)
         {
-            if (recipeID != clientOrder.costumeOrder)
-            {
-                numberPlayerLifes += -1;
-            }
-            else
-            {
-                numberSuccessfulOrders += 1;
-            }
+            numberSuccessfulOrders += 1;
 
-            clientMovement.canGoToExit = true;
+            return;
         }
-        
+
+        numberPlayerLifes += -1;
+
+
+        if (numberPlayerLifes <= 0)
+        {
+            Debug.Log("GameOver");
+        }
     }
 }

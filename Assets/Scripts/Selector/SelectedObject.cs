@@ -5,9 +5,6 @@ public abstract class SelectedObject : MonoBehaviour
 {
     [SerializeField] private ItemSelectable _hover;
 
-    public bool BlocksInteraction;
-    public Action OnFinished;
-
     public void HoverEnter()
     {
         _hover.Select();
@@ -20,4 +17,5 @@ public abstract class SelectedObject : MonoBehaviour
 
     public abstract void StartInteraction();
     public abstract void EndInteraction();
+    public abstract void UpdateObject(Vector2 position);
 }

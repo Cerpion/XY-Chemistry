@@ -4,6 +4,7 @@ using UnityEngine;
 public interface ICraftSystem
 {
     public ItemData Craft();
+    public bool CanCraft();
     public void AddItem(ItemData item);
 }
 
@@ -18,6 +19,10 @@ public class CraftSystem : ICraftSystem
         _recipeConfiguration = recipeConfiguration;
         _trash = trash;
         _input = new List<ItemID>();
+    }
+    public bool CanCraft()
+    {
+        return _input.Count > 0;
     }
 
     public ItemData Craft()
@@ -72,4 +77,6 @@ public class CraftSystem : ICraftSystem
     {
         _input.Add(item.ItemID);
     }
+
+
 }

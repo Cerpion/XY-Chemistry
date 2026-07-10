@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb9868c01f7327b42b41cae7451f2a12, type: 3}
+  m_Name: Reloj
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  ItemID: {fileID: 11400000, guid: 35808bd516e539e49a524cc5b228b90b, type: 2}
+  Icon: {fileID: -1309763678, guid: b6775adda315bf446abdfb583e8a734e, type: 3}
+  IconColor: {r: 0.4811321, g: 0.27163592, b: 0, a: 1}
+  Name: Reloj
+  Prefab: {fileID: 3391515086855278462, guid: 3adaebda203cc6641a36261211a2a8d0, type: 3}

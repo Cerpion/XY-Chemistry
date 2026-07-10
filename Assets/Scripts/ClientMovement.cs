@@ -1,69 +1,58 @@
+using System;
 using UnityEngine;
 
 public class ClientMovement : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private GameObject deliveryStage;
-    private GameObject exitStage;
-    private Vector3 deliveryPosition;
-    private Vector3 exitPosition;
-    public bool isInDeliveryStage;
-    public bool canGoToExit;
+    public ItemID RequestedOrder;
+    public Action OnClientExit;
 
-    [SerializeField] private float speedMovement;
+    private Transform _deliveryStage;
+    private Transform _exitStage;
 
-    private ClientSpawner clientSpawn;
+    [SerializeField] private float _timeToWalk;
+    [SerializeField] private AudioClip[] _talkClip;
+    [SerializeField] private AudioSource _audioSource;
 
-    void OnEnable()
+    public void Initialized(Transform deliveryStage, Transform exitStage)
     {
-        deliveryStage = GameObject.FindGameObjectWithTag("PointToReceiveDelivery");
-        exitStage = GameObject.FindGameObjectWithTag("PointToExit");
-        clientSpawn = GameObject.Find("ClientSpawner").GetComponent<ClientSpawner>();
-        isInDeliveryStage = false;
-
-        if (deliveryStage != null)
-        {
-            deliveryPosition = new Vector3(deliveryStage.transform.position.x, transform.position.y, transform.position.z);
-        }
-
-        if (exitStage != null)
-        {
-            exitPosition = new Vector3(exitStage.transform.position.x, transform.position.y, transform.position.z);
-        }
+        _deliveryStage = deliveryStage;
+        _exitStage = exitStage;
+        MoveToShop();
     }
 
-    private void Start()
+    public void MoveToShop()
     {
-        
+        var sequence = LeanTween.sequence();
+        sequence.append(LeanTween.move(gameObject, _deliveryStage, _timeToWalk).setEaseInOutCubic());
+        sequence.append(Order);
+        sequence.append(2f);
+    }
+    private void Order()
+    {
+        _audioSource.clip = _talkClip[UnityEngine.Random.Range(0, _talkClip.Length)];
+        _audioSource.pitch = UnityEngine.Random.Range(0.8f, 1.2f);
+        _audioSource.Play();
+
+        //Ordenar
+        //UI
+        //CambiarImagen
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ExitToShop()
     {
-        if(deliveryStage != null && !isInDeliveryStage)
-        {
-            transform.position = Vector3.MoveTowards( transform.position, deliveryPosition, speedMovement * Time.deltaTime);
-            if (transform.position == deliveryPosition)
-            {
-                isInDeliveryStage = true;
-
-            }
-            
-        }
-
-        if (canGoToExit && exitStage != null)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, exitPosition, speedMovement * Time.deltaTime);
-            if (transform.position == exitPosition)
-            {
-                
-                Destroy(gameObject);
-                clientSpawn.SpawnClient();
-
-
-
-            }
-        }
-        
+        var sequence = LeanTween.sequence();
+        sequence.append(LeanTween.move(gameObject, _exitStage, _timeToWalk).setEaseInOutCubic());
+        sequence.append(Exit);
     }
+
+    private void Exit()
+    {
+        OnClientExit?.Invoke();
+        Destroy(gameObject);
+    }
+    public void SelectOrder(ItemID itemToOder)
+    {
+        RequestedOrder = itemToOder;
+    }
+
 }

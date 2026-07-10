@@ -13,4 +13,12 @@ MonoBehaviour:
   m_Name: RecipeConfiguration
   m_EditorClassIdentifier: Assembly-CSharp::RecipeConfiguration
   Recipes:
+  - {fileID: 11400000, guid: 8f7da653d4d987b43b96f321de5dd7d1, type: 2}
+  - {fileID: 11400000, guid: 288ce8c86f5cbb7448d7b2dcd9076878, type: 2}
+  - {fileID: 11400000, guid: 0d400bc68bc45184abad64a7578484f0, type: 2}
   - {fileID: 11400000, guid: 8f500452a5fbaee4ba9e0e3b62d88487, type: 2}
+  - {fileID: 11400000, guid: 1fefdec1b2ec90c4ea95e98439e1938f, type: 2}
+  - {fileID: 11400000, guid: 03b62b480f57d6c408b4836383aef31f, type: 2}
+  - {fileID: 11400000, guid: 7654fc879d395ab4983b00a0dae02fb3, type: 2}
+  - {fileID: 11400000, guid: 63324fa89e2e6fa41a5fa5fb4f13203a, type: 2}
+  - {fileID: 11400000, guid: 89a9e4d50c3449c4db4754bea0177cb8, type: 2}

@@ -8,6 +8,7 @@ public class Selector : MonoBehaviour
     public bool Busy;
 
     private SelectedObject _currentObject;
+    private SelectedObject _selectedItem;
 
     private void Awake()
     {
@@ -17,24 +18,38 @@ public class Selector : MonoBehaviour
     private void OnEnable()
     {
         _input.Player.Enable();
-        _input.Player.Attack.performed += OnClick;
+        _input.Player.Attack.started += OnPressStart;
+        _input.Player.Attack.canceled += OnPressEnd;
         _input.Player.Pointer.performed += OnPointer;
     }
 
     private void OnDisable()
     {
-        _input.Player.Attack.performed -= OnClick;
+        _input.Player.Attack.started -= OnPressStart;
+        _input.Player.Attack.canceled -= OnPressEnd;
         _input.Player.Pointer.performed -= OnPointer;
         _input.Player.Disable();
     }
     private void OnPointer(InputAction.CallbackContext ctx)
     {
-        if (Busy)
+       
+    }
+
+    private void Update()
+    {
+        Vector2 mousePosition = Mouse.current.position.ReadValue();
+
+        if (_selectedItem != null)
+        {
+            Vector3 screenPos = new Vector3(mousePosition.x, mousePosition.y, 16.27f);
+            Vector3 worldPos = _camera.ScreenToWorldPoint(screenPos);
+
+            _selectedItem.UpdateObject(worldPos);
             return;
+        }
 
-        Vector2 position = ctx.ReadValue<Vector2>();
 
-        Ray ray = _camera.ScreenPointToRay(position);
+        Ray ray = _camera.ScreenPointToRay(mousePosition);
 
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
@@ -56,32 +71,33 @@ public class Selector : MonoBehaviour
             _currentObject = null;
         }
 
-        Debug.Log(_currentObject);
+        Debug.DrawRay(ray.origin, ray.direction * 100, Color.cadetBlue);
+
     }
 
-    private void OnClick(InputAction.CallbackContext context)
+    private void OnPressStart(InputAction.CallbackContext context)
     {
-        if (Busy)
-            return;
-
-        if (_currentObject == null)
+        if (_currentObject != null)
         {
-            return;
-        }
+            _selectedItem = _currentObject;
+            _selectedItem.StartInteraction();
 
-        if (_currentObject.BlocksInteraction)
+            _currentObject?.HoverExit();
+            _currentObject = null;
+        }
+    }
+
+    private void OnPressEnd(InputAction.CallbackContext context)
+    {
+        if (_selectedItem != null)
         {
-            Busy = true;
+            _selectedItem.EndInteraction();
+            _selectedItem = null;
         }
-
-        _currentObject?.HoverExit();
-        _currentObject.StartInteraction();
-        _currentObject.OnFinished += EndBusy;
     }
 
     private void EndBusy()
     {
-        _currentObject.OnFinished -= EndBusy;
         _currentObject = null;
         Busy = false;
     }

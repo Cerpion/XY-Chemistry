@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Main Camera Custom Blends
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineBlenderSettings
   CustomBlends:
-  - From: Book
-    To: MainCamera
+  - From: CameraBook
+    To: NormalCamera
     Blend:
       Style: 1
       Time: 1
@@ -24,8 +24,8 @@ MonoBehaviour:
         m_PreInfinity: 0
         m_PostInfinity: 0
         m_RotationOrder: 0
-  - From: MainCamera
-    To: Book
+  - From: NormalCamera
+    To: CameraBook
     Blend:
       Style: 1
       Time: 1

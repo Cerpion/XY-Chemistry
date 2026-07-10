@@ -29,7 +29,11 @@ public class RecipesBook : SelectedObject
 
         _RecipeBook.LeanAlpha(0, 0.2f).setDelay(0.8f).setOnComplete(() =>
         {
-            OnFinished?.Invoke();
+            //OnFinished?.Invoke();
         });
+    }
+
+    public override void UpdateObject(Vector2 position)
+    {
     }
 }

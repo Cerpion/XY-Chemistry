@@ -7,6 +7,7 @@ public class ItemData : ScriptableObject
    public string ID => ItemID.ID;
 
    public Sprite Icon;
+   public Color IconColor;
    public string Name;
    public GameObject Prefab;
 }
